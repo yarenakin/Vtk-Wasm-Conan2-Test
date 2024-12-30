@@ -54,6 +54,7 @@ conan install . --profile=emscripten_profile --build=missing
 ```
 
 Eğer her şey doğru bir şekilde kurulduysa, VTK ile WASM çıktısını tarayıcınızda görmelisiniz:
-![VTK Output](https://raw.githubusercontent.com/username/repo/branch/assets/vtk_output.png)
+![VTK Output](assets/vtk_output.png)
+
 
 
