@@ -32,6 +32,14 @@ if %errorlevel% neq 0 (
 :: profiles_list.txt dosyasını sil
 del profiles_list.txt
 
+:: Conan source adımı
+echo == VTK indir ve cikart (Conan source) ==
+conan source .
+if %errorlevel% neq 0 (
+    echo [HATA] Conan source isleminde bir sorun olustu!
+    exit /b %errorlevel%
+)
+
 :: Conan bağımlılıklarını yükle
 echo == Conan bagimliliklerini yukle ==
 conan install . --profile=%PROFILE_NAME% --build=missing
@@ -48,12 +56,12 @@ if %errorlevel% neq 0 (
     exit /b %errorlevel%
 )
 
-:: Python HTTP sunucusunu başlat
+:: Python HTTP sunucusunu baslat
 echo == Python HTTP sunucusu baslat ==
 cd build
 python -m http.server
 if %errorlevel% neq 0 (
-    echo [HATA] Python HTTP sunucusu baslatilirken bir sorun olutu!
+    echo [HATA] Python HTTP sunucusu baslatilirken bir sorun olustu!
     exit /b %errorlevel%
 )
 
