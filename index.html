@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Wasm-Conan2-Vtk-Test2</title>
+</head>
+
+<body>
+  <!-- Canvas Element -->
+  <canvas id="canvas" tabindex="-1" onclick="canvas.focus()" 
+    style="position: absolute; left: 0; top: 0; width: 100%; height: 100%;"></canvas>
+  
+  <!-- Load the WebAssembly Module -->
+  <script src="MyWasmModule.js"></script>
+
+  <script>
+    // Wait for the WASM module to load
+    createWasmModule().then((Module) => {
+      console.log("WASM Module Loaded!");
+
+      // Get the canvas element
+      const canvas = document.getElementById("canvas");
+      if (canvas) {
+        console.log("Canvas element found:", canvas);
+      } else {
+        console.error("Canvas element not found!");
+        return;
+      }
+
+    });
+  </script>
+</body>
+
+</html>
